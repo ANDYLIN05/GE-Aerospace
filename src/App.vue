@@ -1,26 +1,41 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+<script setup>
+  import { ref } from 'vue';
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+  const num1 = ref(0);
+  const num2 = ref(0);
+  const product = ref(null);
+  const showButton = ref(true);
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  const computeProduct = () =>{
+    product.value = num1.value * num2.value;
+    showButton.value = false;
+  };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+
+  <h1> Compute Product </h1>
+
+  <!-- Display Number-->
+  <div>
+    <p>
+      Number 1: <input v-model = "num1" type = "number" />
+    </p>
+    <p>
+      Number 2: <input v-model = "num2" tpye = "number" />
+    </p>
+  </div>
+
+  <!-- Compute Result / Button -->
+  <div>
+    <button v-if = "showButton" @click = "computeProduct">
+      Compute
+    </button>
+    <p v-else>The product is: {{ product }}</p>
+  </div>
+
+  <!--My Image-->
+  <div>
+    <img src="@/assets/Aerospace.jpeg" alt="Local Image" />
+  </div>
+</template>
