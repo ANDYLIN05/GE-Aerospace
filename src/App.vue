@@ -10,12 +10,19 @@
     product.value = num1.value * num2.value;
     showButton.value = false;
   };
+
+  const reset = () =>{
+    num1.value = 0;
+    num2.value = 0;
+    product.value = null;
+    showButton.value = true;
+  };
 </script>
 
 <template>
 
   <h1> Compute Product </h1>
-
+  
   <!-- Display Number-->
   <div>
     <p>
@@ -32,6 +39,9 @@
       Compute
     </button>
     <p v-else>The product is: {{ product }}</p>
+    <button @click = "reset">
+      Rest
+    </button>
   </div>
 
   <!--My Image-->
