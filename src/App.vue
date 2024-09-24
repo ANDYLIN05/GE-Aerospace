@@ -29,7 +29,7 @@
       Number 1: <input v-model = "num1" type = "number" />
     </p>
     <p>
-      Number 2: <input v-model = "num2" tpye = "number" />
+      Number 2: <input v-model = "num2" type = "number" />
     </p>
   </div>
 
